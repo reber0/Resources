@@ -5,7 +5,7 @@ TARGET="$1"
 checkArgs(){
     if [[ $# -eq 0 ]]; then
         echo -e "ERROR: Invalid argument!"
-        echo -e "[+] USAGE:$0 x.x.x"
+        echo -e "[+] USAGE:$0 192.168.1.1"
         exit 1
     fi
 }
