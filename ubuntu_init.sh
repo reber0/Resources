@@ -21,14 +21,14 @@ changeSoruces(){
 deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
-##测试版源
-deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse
 # 源码
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
-#测试版源
+# 测试版源
+deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse
+# 测试版源码
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse
 # Canonical 合作伙伴和附加
 deb http://archive.canonical.com/ubuntu/ xenial partner
@@ -93,6 +93,8 @@ setWeb(){
 
     echo -e "\033[32m==> install AMP \033[0m"
     sudo apt -y install apache2
+    sudo sh -c "echo \"mysql-server-5.5 mysql-server/root_password password root\" | debconf-set-selections"
+    sudo sh -c "echo \"mysql-server-5.5 mysql-server/root_password_again password root\" | debconf-set-selections"
     sudo apt -y install mysql-server
     sudo apt -y install php php-gd php-mysql libapache2-mod-php
 
