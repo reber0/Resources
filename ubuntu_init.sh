@@ -1,5 +1,6 @@
 #!/bin/bash
 # author:reber0ask@qq.com
+# ubuntu-16.04.7-desktop-amd64.iso
 
 
 setHistory(){
