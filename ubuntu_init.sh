@@ -5,7 +5,6 @@
 
 setHistory(){
     echo -e "\033[32m==> link history file to /dev/null \033[0m"
-    rm .bash_history
     ln -s /dev/null .bash_history
     ln -s /dev/null .viminfo
     ln -s /dev/null .python_history
