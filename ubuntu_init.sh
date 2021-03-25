@@ -43,17 +43,17 @@ deb http://archive.canonical.com/ubuntu/ xenial partner
 installSoftware(){
     cd /tmp/temp
 
-    echo -e "\033[32m==> install gcc/curl/vim/git/openssl/*-dev \033[0m"
+    echo -e "\033[32m==> install *-dev/gcc/openssl/curl/vim/git/zsh \033[0m"
+    sudo apt -y install libpcre3-dev libbz2-dev libc6-dev libdb-dev libexpat1-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libpcap-dev libreadline-dev libsqlite3-dev libssl-dev zlib1g-dev tk-dev xz-utils
     sudo apt -y install gcc
+    sudo apt -y install openssl
     sudo apt -y install curl
     sudo apt -y purge vim-common
     sudo apt -y install vim
     sudo apt -y install git
-    sudo apt -y install openssl
-    sudo apt -y install libpcre3-dev libbz2-dev libc6-dev libdb-dev libexpat1-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libpcap-dev libreadline-dev libsqlite3-dev libssl-dev tk-dev xz-utils zlib1g-dev
-
-    echo -e "\033[32m==> install zsh/ohmyzsh \033[0m"
     sudo apt -y install zsh
+
+    echo -e "\033[32m==> install ohmyzsh \033[0m"
     echo y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     echo -e "alias c='clear'" >> ~/.zshrc
 
@@ -78,14 +78,16 @@ setIDE(){
     ./configure --prefix=/opt/Python-3.9.1 --with-ssl
     sudo sh -c "make && make install"
     sudo sh -c "mv /usr/bin/python3 /usr/bin/python3.bak"
-    sudo sh -c "export PYTHONPATH=/opt/Python-3.9.1/bin:$PATH"
+    echo -e "export PYTHON_HOME=/opt/Python-3.9.1" >> ~/.zshrc
+    echo -e 'export PATH=$PYTHON_HOME/bin:$PATH' >> ~/.zshrc
 
     echo -e "\033[32m==> install JDK \033[0m"
     curl -o jdk-8u281-linux-x64.tar.gz https://media.githubusercontent.com/media/reber0/Resources/master/jdk-8u281-linux-x64.tar.gz
     tar -zxvf jdk-8u281-linux-x64.tar.gz -C /opt
     echo -e "export JAVA_HOME=/opt/jdk1.8.0_281" >> ~/.zshrc
+    echo -e 'export JRE_HOME=$JAVA_HOME/jre' >> ~/.zshrc
     echo -e 'export PATH=$JAVA_HOME/bin:$PATH' >> ~/.zshrc
-    echo -e 'export CLASSPATH=.:$JAVA_HOME/lib' >> ~/.zshrc
+    echo -e 'export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH' >> ~/.zshrc
 }
 
 setWeb(){
@@ -94,6 +96,7 @@ setWeb(){
     echo -e "\033[32m==> install AMP \033[0m"
     sudo apt -y install apache2
     sudo DEBIAN_FRONTEND=noninteractive apt -y install mysql-server
+    # echo -e "\033[31m==> mysql pwd is root/111111 \033[0m"
     sudo apt -y install php php-gd php-mysql libapache2-mod-php
 
     echo -e "install Nginx"
@@ -105,14 +108,12 @@ setWeb(){
 }
 
 clear(){
-    cd /tmp
-    rm -rf ./temp
+    sudo rm -rf /tmp/temp
+    cd
 
     chsh -s $(which zsh)
     zsh
     source ~/.zshrc
-    cd
-    echo -e "\033[31m==> mysql pwd is 111111 \033[0m"
 }
 
 mkdir /tmp/temp
