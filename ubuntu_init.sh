@@ -81,7 +81,9 @@ setIDE(){
     echo -e 'export PATH=$PYTHON_HOME/bin:$PATH' >> ~/.zshrc
 
     echo -e "\033[32m==> install JDK \033[0m"
-    curl -o jdk-8u281-linux-x64.tar.gz https://media.githubusercontent.com/media/reber0/Resources/master/jdk-8u281-linux-x64.tar.gz
+    curl -o jdk-8u281-linux-x64.tar.gzaa https://media.githubusercontent.com/media/reber0/Resources/master/jdk-8u281-linux-x64.tar.gzaa
+    curl -o jdk-8u281-linux-x64.tar.gzab https://media.githubusercontent.com/media/reber0/Resources/master/jdk-8u281-linux-x64.tar.gzab
+    cat jdk-8u281-linux-x64.tar.gza* > jdk-8u281-linux-x64.tar.gz
     tar -zxvf jdk-8u281-linux-x64.tar.gz -C /opt
     echo -e "export JAVA_HOME=/opt/jdk1.8.0_281" >> ~/.zshrc
     echo -e 'export JRE_HOME=$JAVA_HOME/jre' >> ~/.zshrc
