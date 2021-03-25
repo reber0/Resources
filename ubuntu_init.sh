@@ -77,9 +77,8 @@ setIDE(){
     cd Python-3.9.1
     ./configure --prefix=/opt/Python-3.9.1 --with-ssl
     sudo sh -c "make && make install"
-    mv /usr/bin/python3 /usr/bin/python3.bak
-    ln -s /opt/Python-3.9.1/bin/python3 /usr/bin/python3
-    ln -s /opt/Python-3.9.1/bin/pip3 /usr/bin/pip3
+    sudo sh -c "mv /usr/bin/python3 /usr/bin/python3.bak"
+    sudo sh -c "export PYTHONPATH=/opt/Python-3.9.1/bin:$PATH"
 
     echo -e "\033[32m==> install JDK \033[0m"
     curl -o jdk-8u281-linux-x64.tar.gz https://media.githubusercontent.com/media/reber0/Resources/master/jdk-8u281-linux-x64.tar.gz
