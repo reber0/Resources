@@ -75,7 +75,7 @@ setIDE(){
     curl -o Python-3.9.1.tgz https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz
     tar zxvf Python-3.9.1.tgz
     cd Python-3.9.1
-    ./configure --prefix=/opt/Python-3.9.1 --with-ssl
+    ./configure --prefix=/opt/Python-3.9.1
     sudo sh -c "make && make install"
     sudo sh -c "mv /usr/bin/python3 /usr/bin/python3.bak"
     echo -e "export PYTHON_HOME=/opt/Python-3.9.1" >> ~/.zshrc
@@ -95,8 +95,9 @@ setWeb(){
 
     echo -e "\033[32m==> install AMP \033[0m"
     sudo apt -y install apache2
-    sudo DEBIAN_FRONTEND=noninteractive apt -y install mysql-server
-    # echo -e "\033[31m==> mysql pwd is root/111111 \033[0m"
+    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
+    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
+    sudo apt -y install mysql-server
     sudo apt -y install php php-gd php-mysql libapache2-mod-php
 
     echo -e "install Nginx"
