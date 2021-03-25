@@ -93,9 +93,7 @@ setWeb(){
 
     echo -e "\033[32m==> install AMP \033[0m"
     sudo apt -y install apache2
-    sudo sh -c "echo \"mysql-server-5.5 mysql-server/root_password password root\" | debconf-set-selections"
-    sudo sh -c "echo \"mysql-server-5.5 mysql-server/root_password_again password root\" | debconf-set-selections"
-    sudo apt -y install mysql-server
+    sudo DEBIAN_FRONTEND=noninteractive apt -y install mysql-server
     sudo apt -y install php php-gd php-mysql libapache2-mod-php
 
     echo -e "install Nginx"
@@ -115,6 +113,7 @@ clear(){
     zsh
     source ~/.zshrc
     cd
+    echo -e "\033[31m==> mysql pwd is 111111 \033[0m"
 }
 
 mkdir /tmp/temp
