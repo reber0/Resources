@@ -43,7 +43,8 @@ installSoftware(){
     cd /tmp/temp
 
     echo -e "\033[32m==> install *-dev/gcc/openssl/curl/vim/git/zsh \033[0m"
-    sudo apt -y install libpcre3-dev libbz2-dev libc6-dev libdb-dev libexpat1-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libpcap-dev libreadline-dev libsqlite3-dev libssl-dev zlib1g-dev tk-dev xz-utils
+    sudo apt -y install libbz2-dev libffi-dev libssl-dev libreadline-dev libsqlite3-dev zlib1g-dev libpcap-dev tk-dev 
+    sudo apt -y install libc6-dev libdb-dev libgdbm-dev libpcre3-dev libexpat1-dev liblzma-dev libncurses5-dev xz-utils
     sudo apt -y install gcc
     sudo apt -y install openssl
     sudo apt -y install curl
