@@ -43,20 +43,21 @@ deb http://archive.canonical.com/ubuntu/ xenial partner
 installSoftware(){
     cd /tmp/temp
 
-    echo -e "\033[32m==> install gcc/curl/git/zsh \033[0m"
+    echo -e "\033[32m==> install gcc/curl/vim/git/openssl/*-dev \033[0m"
     sudo apt -y install gcc
     sudo apt -y install curl
+    sudo apt -y purge vim-common
+    sudo apt -y install vim
     sudo apt -y install git
-    sudo apt -y install zsh
-    sudo apt -y install libpcre3-dev libbz2-dev libc6-dev libdb-dev libexpat1-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libpcap-dev libreadline-dev libsqlite3-dev openssl libssl-dev tk-dev xz-utils zlib1g-dev
+    sudo apt -y install openssl
+    sudo apt -y install libpcre3-dev libbz2-dev libc6-dev libdb-dev libexpat1-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libpcap-dev libreadline-dev libsqlite3-dev libssl-dev tk-dev xz-utils zlib1g-dev
 
-    echo -e "\033[32m==> install ohmyzsh \033[0m"
+    echo -e "\033[32m==> install zsh/ohmyzsh \033[0m"
+    sudo apt -y install zsh
     echo y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     echo -e "alias c='clear'" >> ~/.zshrc
 
-    echo -e "\033[32m==> install vim/tmux/nmap \033[0m"
-    sudo apt -y purge vim-common
-    sudo apt -y install vim
+    echo -e "\033[32m==> install tmux/nmap \033[0m"
     sudo apt -y install tmux
     sudo apt -y install nmap
 
