@@ -71,7 +71,6 @@ setIDE(){
     cd /tmp/temp
 
     echo -e "\033[32m==> install Python3 \033[0m"
-    mkdir /opt/Python-3.9.1
     curl -o Python-3.9.1.tgz https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz
     tar zxvf Python-3.9.1.tgz
     cd Python-3.9.1
