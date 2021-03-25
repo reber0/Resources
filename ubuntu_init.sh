@@ -42,13 +42,11 @@ deb http://archive.canonical.com/ubuntu/ xenial partner
 installSoftware(){
     cd /tmp/temp
 
-    echo -e "\033[32m==> install *-dev/gcc/openssl/curl/vim/git/zsh \033[0m"
-    sudo apt -y install libbz2-dev libffi-dev libssl-dev libreadline-dev libsqlite3-dev zlib1g-dev libpcap-dev tk-dev 
+    echo -e "\033[32m==> install gcc/openssl/*-dev/curl/vim/git/zsh \033[0m"
+    sudo apt -y install gcc openssl
+    sudo apt -y install libbz2-dev libffi-dev libssl-dev libreadline-dev libsqlite3-dev zlib1g-dev libpcap-dev tk-dev
     sudo apt -y install libc6-dev libdb-dev libgdbm-dev libpcre3-dev libexpat1-dev liblzma-dev libncurses5-dev xz-utils
-    sudo apt -y install gcc
-    sudo apt -y install openssl
     sudo apt -y install curl
-    sudo apt -y purge vim-common
     sudo apt -y install vim
     sudo apt -y install git
     sudo apt -y install zsh
