@@ -48,7 +48,7 @@ installSoftware(){
     sudo apt -y install curl
     sudo apt -y install git
     sudo apt -y install zsh
-    sudo apt -y install libbz2-dev libc6-dev libdb-dev libexpat1-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libpcap-dev libreadline-dev libsqlite3-dev libssl-dev tk-dev xz-utils zlib1g-dev
+    sudo apt -y install libpcre3-dev libbz2-dev libc6-dev libdb-dev libexpat1-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libpcap-dev libreadline-dev libsqlite3-dev openssl libssl-dev tk-dev xz-utils zlib1g-dev
 
     echo -e "\033[32m==> install ohmyzsh \033[0m"
     echo y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -97,7 +97,6 @@ setWeb(){
     sudo apt -y install php php-gd php-mysql libapache2-mod-php
 
     echo -e "install Nginx"
-    sudo apt -y install libpcre3 libpcre3-dev openssl libssl-dev
     curl -o nginx-1.18.0.tar.gz http://nginx.org/download/nginx-1.18.0.tar.gz
     tar -zxvf nginx-1.18.0.tar.gz
     cd nginx-1.18.0
